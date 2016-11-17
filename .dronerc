@@ -1,0 +1,5 @@
+DATABASE_DRIVER=postgres
+DATABASE_CONFIG=postgres://postgres:postgres@postgres/drone?sslmode=disable
+
+REMOTE_DRIVER=github
+REMOTE_CONFIG=https://github.com?client_id=27204e67c08b1808fab5&client_secret=7e9faff7290cfd453e0f1572de08c3dff095a680

@@ -1,0 +1,25 @@
+version: '2.0'
+services:
+
+  drone:
+    container_name: drone
+    image: drone/drone:0.4
+    volumes:
+      - /var/lib/drone
+      - /var/run/docker.sock:/var/run/docker.sock
+    depends_on:
+      - postgres
+    env_file:
+      - .dronerc
+    ports:
+      - 8000:8000
+
+  postgres:
+    container_name: 'postgres'
+    image: 'mdillon/postgis:9.5'
+    ports:
+      - '5432:5432'
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=drone
